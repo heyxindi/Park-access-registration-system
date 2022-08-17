@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>历史访客记录</title>
+
+		<link rel="stylesheet" href="/static/css/amazeui.min.css">
+		<link rel="stylesheet" href="/static/css/admin.css">
+		<link rel="stylesheet" href="/static/css/app.css">
+	</head>
+
+	<body>
+
+		<div class="am-cf admin-main">
+			<!-- content start -->
+			<div class="admin-content">
+				<div class="admin-content-body">
+					<div class="am-cf am-padding am-padding-bottom-0">
+						<div class="am-fl am-cf">
+							<strong class="am-text-primary am-text-lg"> </strong><small>
+							<i class="icon-home"></i> &gt; 首页 &gt; 访客历史记录</small>
+						</div>
+					</div>
+					<hr>
+					<div class="container" style="padding: 0px 10px 0px 10px">
+						<div class="am-g" style="margin-top: 5px;">
+							<div class="am-u-sm-12">
+								<form class="am-form" method="POST">
+									<table class="am-table am-table-striped am-table-hover table-main">
+										<thead>
+											<tr>
+												<th>
+													身份证号
+												</th>
+												<th>
+													姓名
+												</th>
+												<th class="table-title">
+													手机号
+												</th>
+												<th>
+													入园时间
+												</th>
+												<th>
+													出园时间
+												</th>
+												<th class="table-set">
+													操作
+												</th>
+
+											</tr>
+										</thead>
+										<tbody id="tUser">
+											{% for eachInfo in historyInfo %}
+											<tr>
+												<td>{{ eachInfo[0] }}</td>
+												<td>{{ eachInfo[1] }}</td>
+												<td>{{ eachInfo[2] }}</td>
+												<td>{{ eachInfo[3] }}</td>
+												<td>{{ eachInfo[4] }}</td>
+												<td>
+													<div class="am-btn-toolbar">
+														<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="window.location.href='/admin/deleteRecord/{{ eachInfo[5] }}/'"><span class="am-icon-trash-o"></span> 删除</button></div>
+													</div>
+												</td>
+											</tr>
+											{% endfor %}											
+										</tbody>
+									</table>
+									<div class="am-cf">
+										共
+										<span id="totalCount">{{ totalNum }}</span> 条记录
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- content end -->
+			</div>
+		</div>
+
+		<!--[if (gte IE 9)|!(IE)]><!-->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!--<![endif]-->
+		<script type="text/javascript" src="myplugs/js/plugs.js"></script>
+	</body>
+
+</html>

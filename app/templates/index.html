@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/static/css/amazeui.min.css">
+		<link rel="stylesheet" href="/static/css/admin.css">
+		<link rel="stylesheet" href="/static/css/app.css">
+		
+		 <style>
+		 	.admin-main{
+		 		padding-top: 0px;	
+		 	}
+		 </style>
+	</head>
+	<body>
+		<body>
+			<header class="am-topbar am-topbar-inverse admin-header">
+				<div class="am-topbar-brand">
+					<small>管理系统界面</small>
+				</div>
+				<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+			<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+		</button>
+				<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+					<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+						<li class="am-dropdown" data-am-dropdown="">
+							<a> <span class="am-icon-users"></span> {{ username }} </a>
+						</li>
+					</ul>
+				</div>
+			</header>
+
+			<div class="am-cf admin-main">
+				<!-- sidebar start -->
+				<div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+					<div class="am-offcanvas-bar admin-offcanvas-bar">
+						<ul class="am-list admin-sidebar-list">
+							<li>
+								<a href="/templates/admin-index.html"><span class="am-icon-home"> 首页</span>
+									<li class="admin-parent">
+										<a class="am-cf" ><span class="am-icon-file">
+											</span> 园区访客信息<span class="am-icon-angle-right am-fr am-margin-right"></span>
+										</a>
+										<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+											<li>
+												<a  href="/admin/visitorInfo" target="right" class="am-cf"><span class="am-icon-check"></span> 历史访客信息
+												</a>
+											</li>
+											<li>
+												<a  href="/admin/visitorHistory" target="right" class="am-cf"><span class="am-icon-check"></span> 访客历史记录
+												</a>
+											</li>	
+											<li>
+												<a  href="/admin/searchVisitor" target="right" class="am-cf"><span class="am-icon-check"></span> 访客信息查询
+												</a>
+											</li>
+											<li>
+												<a  href="/admin/searchHistory" target="right" class="am-cf"><span class="am-icon-check"></span> 访客记录查询
+												</a>
+											</li>	
+										</ul>
+									</li>
+									<li>
+										<a href="/admin/logout"><span class="am-icon-sign-out"></span> 注销</a>
+									</li>
+						</ul>
+
+						<div class="am-panel am-panel-default admin-sidebar-panel">
+							<div class="am-panel-bd">
+								<p>
+									<span class="am-icon-bookmark"></span> 公告
+								</p>
+								<p>当前版本v1.0.2</p>
+							</div>
+						</div>
+
+						
+					</div>
+				</div>
+				<!-- sidebar end -->
+
+				<!-- content start -->
+				<div class="admin-content">
+					<div class="admin-content-body">
+						<iframe src="/admin/visitorInfo" width="100%" height="1100" name="right" style="border: none;"></iframe>
+					</div>
+				</div>
+
+			</div>
+			<!-- content end -->
+
+			</div>
+
+			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+			<!--[if lt IE 9]>
+			<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+			<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+			<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+			<![endif]-->
+
+			<!--[if (gte IE 9)|!(IE)]><!-->
+			<script src="js/jquery-1.11.3.min.js"></script>
+			<!--<![endif]-->
+			<script src="js/amazeui.min.js"></script>
+			<script src="js/app.js"></script>
+			<script type="text/javascript" src="myplugs/js/plugs.js"></script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索访客历史记录</title>
+
+		<link rel="stylesheet" href="/static/css/amazeui.min.css">
+		<link rel="stylesheet" href="/static/css/admin.css">
+		<link rel="stylesheet" href="/static/css/app.css">
+	</head>
+
+	<body>
+
+		<div class="am-cf admin-main">
+			<!-- content start -->
+			<div class="admin-content">
+				<div class="admin-content-body">
+					<div class="am-cf am-padding am-padding-bottom-0">
+						<div class="am-fl am-cf">
+							<strong class="am-text-primary am-text-lg"> </strong><small>
+							<i class="icon-home"></i> &gt; 首页 &gt; 搜索访客历史记录</small>
+						</div>
+					</div>
+					<hr>
+					<div class="container" style="padding: 0px 10px 0px 10px">
+						<form method="POST">
+							<input type="text" name="id" placeholder="请输入身份证号码" required>
+							<button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary btnEdit">搜索</button>
+						</form>
+					</div>
+					{% if msg %}
+					<div class="container" style="padding: 0px 10px 0px 10px">
+						<p>{{ msg }}</p>
+					</div>
+					{% endif %}
+					{% if recordInfo %}
+					<div class="container" style="padding: 0px 10px 0px 10px">
+						<div class="am-g" style="margin-top: 5px;">
+							<div class="am-u-sm-12">
+								<form class="am-form" method="POST">
+									<table class="am-table am-table-striped am-table-hover table-main">
+										<thead>
+											<tr>
+												<th>
+													序号
+												</th>
+												<th>
+													身份证号
+												</th>
+												<th>
+													姓名
+												</th>
+												<th>
+													手机号
+												</th>
+												<th>
+													入园时间
+												</th>
+												<th>
+													出园时间
+												</th>
+												<th class="table-set">
+													操作
+												</th>
+
+											</tr>
+										</thead>
+										<tbody id="tUser">
+											{% for eachRecord in recordInfo %}
+											<tr>
+												<td>{{ eachRecord[0] }}</td>
+												<td>{{ eachRecord[1] }}</td>
+												<td>{{ eachRecord[2] }}</td>
+												<td>{{ eachRecord[3] }}</td>
+												<td>{{ eachRecord[4] }}</td>
+												<td>{{ eachRecord[5] }}</td>
+												<td>
+													<div class="am-btn-toolbar">
+														<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="window.location.href='/admin/deleteRecordForSearchPage/{{ recordInfo[0] }}/'"><span class="am-icon-trash-o"></span> 删除</button></div>
+													</div>
+												</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+
+				</div>
+				<!-- content end -->
+			</div>
+		</div>
+
+		<!--[if (gte IE 9)|!(IE)]><!-->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!--<![endif]-->
+		<script type="text/javascript" src="myplugs/js/plugs.js"></script>
+	</body>
+
+</html>
