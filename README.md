@@ -2,6 +2,18 @@
 HUAWEI Kunpeng App Developer Competition
 - Fixed questions
 - Link of Works: http://124.71.57.148:5000/visitor/visitoradmin
+- 加cID的页面
+  1) teacher
+    - MethodPage
+    - MethodDetailPage
+    - gpaBandPage
+    - IndividualGeneratingPage
+    - VotingDecision(Teacher)
+  2) student
+    - endGrouping
+    - 15.prompt page for grouping
+    - 20.submisson grading for leader
+    - accessing
 
 ## Function implementation
 ### Python Flask Framework
